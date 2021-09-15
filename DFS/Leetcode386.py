@@ -5,9 +5,7 @@ class Solution:
         return res
 
     def dfs(self,res,n,start):
-        if start==0:
-            i=1
-        else: i=0
+        i=1 if start==0 else 0
         while i<10:
             add=start*10+i
             if add>n:
@@ -19,5 +17,5 @@ class Solution:
 
 if __name__ == '__main__':
     sol=Solution()
-    n=2
+    n=13
     print(sol.lexicalOrder(n))

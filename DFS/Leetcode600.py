@@ -10,7 +10,7 @@ class Solution:
         for i in range(2,32):
             dp[i]=dp[i-1]+dp[i-2]
         n=bin(n)[2:]
-        ans=0
+        ans=1
         k=0
         while k<len(n):
             if n[-1-k]=='1':
@@ -45,7 +45,7 @@ class Solution:
         #             add = cur[1] + pow(2, len(cur[0]))
         #             if add<n:
         #                 q.append(['0'+cur[0],cur[1]])
-        # return res515406
+        # return res
 
     # def dfs(self,path,res,n):
     #     if path[1]==n:
@@ -53,11 +53,14 @@ class Solution:
     #
     #     if len(path[0])>0 and path[0][0]=='0':
     #         add=path[1]+pow(2,len(path[0]))
-    #         if add<=n:
+    #         if add<n:
     #             res+=self.dfs(['0'+path[0],path[1]],0,n)
     #
-    #             res += 1 if add < n else 0
+    #             res += 1
     #             res+=self.dfs(['1'+path[0],add],0,n)
+    #         elif add==n:
+    #             res+=1
+    #             return res
     #         else:
     #             return 0
     #     elif len(path[0])>0 and path[0][0]=='1':
@@ -73,6 +76,6 @@ class Solution:
 
 if __name__ == '__main__':
     sol=Solution()
-    # n=3289321
-    n=5
+    n=3289321
+    # n=5
     print(sol.findIntegers(n))
