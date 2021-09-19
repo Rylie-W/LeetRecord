@@ -1,5 +1,6 @@
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
+        '''dp'''
         if len(t)==0:
             return 1
         if len(s)==len(t) and s!=t:
@@ -15,6 +16,8 @@ class Solution:
                 else:
                     dp[i][j]=dp[i][j-1]
         return dp[-1][-1]
+
+        '''dfs'''
         # if len(t)==0 or (s==t):
         #     return 1
         # if len(s)==len(t) and s!=t:
