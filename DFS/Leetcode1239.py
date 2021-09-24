@@ -18,8 +18,6 @@ class Solution:
                 memo.append(temp)
         memo.sort(key=lambda a:len(a),reverse=True)
         def dfs(index,path):
-            # if len(memo[index])*(len(memo)-index)<=res:
-            #     return -1
             if index==len(memo):
                 return 0
 

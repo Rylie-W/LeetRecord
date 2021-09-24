@@ -14,7 +14,20 @@ class Solution:
             si=right-1 if smallest==c else si
             dif = largest-smallest
             if dif>limit:
-                pass
+                if li>si:
+                    left=si+1
+                    smallest=None
+                    for i in range(left,right):
+                        smallest=min(smallest,nums[i]) if smallest else nums[i]
+                        si=i if smallest==nums[i] else si
+                else:
+                    left=li+1
+                    for i in range(left,right):
+                        largest=max(largest,nums[i]) if largest else nums[i]
+                        li=i if largest==nums[i] else li
+            else:
+                res=max(res,right-left)
+
             # flag=True
             # i=0
             # for i in range(left,right-1 if right-1 != left else right):
