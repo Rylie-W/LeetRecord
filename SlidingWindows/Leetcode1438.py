@@ -8,11 +8,12 @@ class Solution:
         while right<len(nums):
             c=nums[right]
             right+=1
-            largest=max(largest,c) if largest else c
+            largest=max(largest,c) if largest is not None else c
             li=right-1 if largest==c else li
-            smallest=min(smallest,c) if smallest else c
+            smallest=min(smallest,c) if smallest is not None else c
             si=right-1 if smallest==c else si
             dif = largest-smallest
+
             if dif>limit:
                 if li>si:
                     left=si+1
