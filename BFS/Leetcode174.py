@@ -1,25 +1,29 @@
 class Solution:
     def calculateMinimumHP(self, dungeon) -> int:
-        # q=[[0,0,1-dungeon[0][0] if dungeon[0][0] <=0 else 1, 1 if dungeon[0][0]<=0 else 1+dungeon[0][0]]]
-        # res=float('inf')
-        # direction=[[0,1],[1,0]]
-        # while q:
-        #     size=len(q)
-        #     for s in range(size):
-        #         c=q[0]
-        #         q.pop(0)
-        #         if c[0]==len(dungeon)-1 and c[1]==len(dungeon[0])-1:
-        #             res=min(res,c[2])
-        #         else:
-        #             for ax,ay in direction:
-        #                 nx=c[0]+ax
-        #                 ny=c[1]+ay
-        #                 if nx>-1 and nx <len(dungeon) and ny>-1 and ny<len(dungeon[0]):
-        #                     if c[-1]+dungeon[nx][ny]>0:
-        #                         q.append([nx,ny,c[2],c[-1]+dungeon[nx][ny]])
-        #                     else:
-        #                         q.append([nx,ny,c[2]-(c[-1]+dungeon[nx][ny])+1,1])
-        # return res
+        '''
+        #bfs. Time limit exceeded.
+
+        q=[[0,0,1-dungeon[0][0] if dungeon[0][0] <=0 else 1, 1 if dungeon[0][0]<=0 else 1+dungeon[0][0]]]
+        res=float('inf')
+        direction=[[0,1],[1,0]]
+        while q:
+            size=len(q)
+            for s in range(size):
+                c=q[0]
+                q.pop(0)
+                if c[0]==len(dungeon)-1 and c[1]==len(dungeon[0])-1:
+                    res=min(res,c[2])
+                else:
+                    for ax,ay in direction:
+                        nx=c[0]+ax
+                        ny=c[1]+ay
+                        if nx>-1 and nx <len(dungeon) and ny>-1 and ny<len(dungeon[0]):
+                            if c[-1]+dungeon[nx][ny]>0:
+                                q.append([nx,ny,c[2],c[-1]+dungeon[nx][ny]])
+                            else:
+                                q.append([nx,ny,c[2]-(c[-1]+dungeon[nx][ny])+1,1])
+        return res
+        '''
         dp = [[None for i in range(len(dungeon[0]))]
               for i in range(len(dungeon))]
         dp[0][0] = [1 - dungeon[0][0] if dungeon[0][0] <= 0 else 1,
