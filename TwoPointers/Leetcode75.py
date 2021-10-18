@@ -5,5 +5,6 @@ class Solution:
         """
         left=0
         right=len(nums)-1
-        while right>left:
+        while right>=left:
+            if nums[left]>nums[right]:
             

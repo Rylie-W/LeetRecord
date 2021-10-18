@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-import Utinity.TreeGenerator as Treegenerator
+import Utility.TreeHelper as Treegenerator
 class Solution:
     def pathSum(self, root, targetSum: int) -> int:
         res=0
