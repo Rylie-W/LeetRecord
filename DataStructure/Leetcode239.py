@@ -4,13 +4,13 @@ class Solution:
         res=[]
         d=deque()
         for i,n in enumerate(nums):
-            while d and d[-1]<n:
+            while d and nums[d[-1]]<n:
                 d.pop()
-            d.append(n)
-            if i-k>-2:
-                if i-k>-1 and d[0] == nums[i - k]:
-                    d.popleft()
-                res.append(d[0])
+            d.append(i)
+            if d[0]==i-k:
+                d.popleft()
+            if i>=k-1:
+                res.append(nums[d[0]])
         return res
 
 if __name__ == '__main__':
